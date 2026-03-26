@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/signup.css">
+</head>
+<body>
+    
+    <div class="main">
+    <h1>Instagram</h1>
+    <p id="sign_up">Sign up to see photos and videos from your friends.</p>
+    <button>Log in with Facebook</button>
+    <p>OR</p>
+    <form action="/users/signup" method="POST">
+        <div>
+        <input type="number" placeholder="Mobile number" name="mobile number" required>
+        </div>
+        <br>
+        <div>
+            <input type="text" placeholder="Full name" name="fullName" required>
+        </div>
+        <br>
+        <div>
+            <input type="email" placeholder="email" name="email" required>
+        </div>
+        <br>
+        <div>
+            <input type="password" placeholder="Password" name="password" required>
+        </div>   
+        <p>People who use our service may have uploaded your contact information to instagram.<a href="#">Learn more</a></p>
+        
+        <p>By singing up ,you agree to our <a href="#">Terms</a>.<a href="#">Privacy Policy</a>and <a href="#">Cookies policy</a></p>
+        <button>Sign up</button>
+        </form> 
+    </div> 
+    
+</body>
+</html>

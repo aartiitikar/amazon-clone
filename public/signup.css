@@ -1,0 +1,38 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.main{
+    width:350px;
+    height:560px;
+    border: solid black;
+    text-align: center;
+    background-color: white;
+    margin-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+} 
+input{
+    width:300px;
+    height: 25px;
+}
+#sign_up{
+    color: gray;
+}
+
+button{
+    width: 250px;
+    height: 25px;
+    background-color: rgb(33, 168, 252);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+a{
+    text-decoration: none;
+}

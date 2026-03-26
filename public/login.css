@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;  
+}
+form{
+    height: 220px;
+    width: 300px;
+    text-align: center;
+    justify-content: center;  
+    align-items: center; 
+    margin-top: 100px;
+    background-color: white;
+}
+h1{
+    font-family:serif;
+}
+button{
+    width: 170px;
+    height:25px;
+    background-color: rgb(6, 192, 249);
+    border: none;
+    color: white;  
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: aqua;
+} 
