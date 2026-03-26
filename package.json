@@ -8,5 +8,8 @@
   },
   "engines":{
     "node": "v23.1.0"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
