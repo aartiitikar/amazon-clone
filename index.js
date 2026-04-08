@@ -1,3 +1,8 @@
+if(process.env.NODE_ENV != "prodution"){
+    require("dotenv").config();
+}
+
+console.log(process.env.SECRET);
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -6,6 +11,7 @@ const Signup = require("./model/signup.js");
 const Login = require("./model/login.js")
 const session = require("express-session");
 const flash = require("connect-flash");
+
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine", "ejs");
@@ -39,21 +45,35 @@ app.get("/users/login", (req,res)=>{
     res.render("login");
 })
 
-app.post("/users/login", (req, res) => {
-     req.flash("success", "Welcome to login page"); 
-     res.redirect("/"); 
- });
+app.post("/users/login", async (req, res) => {
+  const { email, password } = req.body;
+  const user = await Signup.findOne({ email });
+  if (user && user.password === password) {
+    req.flash("success", "Logged in successfully!");
+    res.redirect("/");
+  } else {
+    req.flash("error", "Invalid email or password");
+    res.redirect("/users/login");
+  }
+});
 
 app.get("/users/signup",(req,res)=>{
     res.render("signup");
 })
 
-app.post("/users/signup",async(req,res)=>{
-    let {number,fullName,email,password} = req.body;
-    let newSignup = new Signup({ number, fullName, email, password });
+app.post("/users/signup", async (req, res) => {
+  try {
+    const { number, fullName, email, password } = req.body;
+    const newSignup = new Signup({ number, fullName, email, password });
     await newSignup.save();
-    res.redirect("login");
-})
+    req.flash("success", "Signup successful!");
+    res.redirect("/");
+  } catch (err) {
+    console.error("Signup error:", err);
+    req.flash("error", "Signup failed. Please try again.");
+    res.redirect("/users/signup");
+  }
+});
 
 app.get("/", (req,res)=>{
     res.render("home.ejs");
